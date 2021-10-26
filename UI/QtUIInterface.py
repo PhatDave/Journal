@@ -48,7 +48,8 @@ class UiInterface:
 					entry.content = text[1].rstrip()
 				self.reminders.AddEntry(entry)
 			elif 'rem' in text[4:7]:
-				pass
+				text = text[8:]
+				self.reminders.RemoveEntry(int(text))
 			self.Refresh()
 		self.ClearConsole()
 

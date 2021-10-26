@@ -14,7 +14,7 @@ class Reminders:
 			if item.date < now:
 				# self.RemoveEntry(i)
 				toBeRemoved.append(i)
-		for i in toBeRemoved:
+		for i in toBeRemoved[::-1]:
 			self.RemoveEntry(i + 1)
 
 	def RemoveEntry(self, index):

@@ -5,6 +5,7 @@ from UI.QtUIInterface import UiInterface
 from Beeper import Beeper
 
 # TODO: Now make it show up every 10 min or something like that
+# Alarm does not stop!!! help D:
 
 db = Database()
 todos = TODOS(db.GetTODOs(), db)
@@ -12,6 +13,7 @@ reminders = Reminders(db.GetReminders(), db)
 
 beeper = Beeper(reminders)
 beeper.Start()
+beeper.StartBeeping()
 
 ui = UiInterface(todos, reminders, db, beeper)
 

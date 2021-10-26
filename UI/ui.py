@@ -28,13 +28,16 @@ class ui:
 
 		# Open window and focus entry
 		keyboard.add_hotkey('alt+page down', self.OpenEntry,
-							suppress=True, timeout=0)
+							suppress=True,
+							timeout=0)
 		# Open window and focus console
 		keyboard.add_hotkey('ctrl+page down', self.OpenConsole,
-							suppress=True, timeout=0)
+							suppress=True,
+							timeout=0)
 		# Close window
 		keyboard.add_hotkey('shift+page down', self.HideWindow,
-							suppress=True, timeout=0)
+							suppress=True,
+							timeout=0)
 
 		self.CenterOnScreen()
 		self.window.show()

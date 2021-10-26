@@ -75,7 +75,7 @@ class ui:
 		text = self.window.ui.console.toPlainText()
 		try:
 			if 'ff' in text[-3:]:
-				self.interface.ConsoleSubmit(text[:-4])
+				self.interface.ConsoleSubmit(text[:-3])
 		except IndexError: pass
 
 	def CenterOnScreen(self):

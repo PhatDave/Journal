@@ -4,7 +4,7 @@ from Entries.todos import TODOS
 from UI.QtUIInterface import UiInterface
 from Beeper import Beeper
 
-# TODO: Still need to create alarm and beeper
+# TODO: Now make it show up every 10 min or something like that
 
 db = Database()
 todos = TODOS(db.GetTODOs(), db)

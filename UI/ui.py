@@ -63,14 +63,14 @@ class ui:
 		self.SetMarkdown(self.window.ui.markdownPreview, text)
 
 		try:
-			if 'eof' in text[-3:]:
+			if 'fff' in text[-3:]:
 				self.interface.EntrySubmit(text[:-4])
 		except IndexError: pass
 
 	def ConsoleChanged(self):
 		text = self.window.ui.console.toPlainText()
 		try:
-			if 'eof' in text[-3:]:
+			if 'fff' in text[-3:]:
 				self.interface.ConsoleSubmit(text[:-4])
 		except IndexError: pass
 

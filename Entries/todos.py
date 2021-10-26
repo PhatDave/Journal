@@ -6,6 +6,7 @@ class TODOS:
 	def RemoveEntry(self, index):
 		index -= 1
 		self.db.RemoveRow('TODO', self.tlist[index].ROWID)
+		self.tlist.pop(index)
 
 	def AddEntry(self, entry):
 		self.tlist.append(entry)

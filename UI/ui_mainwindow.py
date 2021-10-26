@@ -15,14 +15,14 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QMainWindow, QPlainTextEdit, QSizePolicy,
-    QTextEdit, QWidget)
+from PySide6.QtWidgets import (QApplication, QMainWindow, QSizePolicy, QTextEdit,
+    QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1500, 900)
+        MainWindow.resize(1500, 1000)
         sizePolicy = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -59,7 +59,7 @@ class Ui_MainWindow(object):
         self.todo.setMaximumSize(QSize(600, 600))
         self.todo.setFont(font)
         self.todo.setReadOnly(True)
-        self.console = QPlainTextEdit(self.centralwidget)
+        self.console = QTextEdit(self.centralwidget)
         self.console.setObjectName(u"console")
         self.console.setGeometry(QRect(0, 600, 1500, 40))
         sizePolicy.setHeightForWidth(self.console.sizePolicy().hasHeightForWidth())

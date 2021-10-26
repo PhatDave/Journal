@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1500</width>
-    <height>900</height>
+    <height>1000</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -128,7 +128,7 @@
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QPlainTextEdit" name="console">
+   <widget class="QTextEdit" name="console">
     <property name="geometry">
      <rect>
       <x>0</x>

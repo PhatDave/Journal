@@ -1,3 +1,6 @@
+import threading
+import winsound
+
 from UI.ui_mainwindow import Ui_MainWindow
 from PySide6.QtWidgets import QApplication, QMainWindow
 from PySide6 import QtCore
@@ -47,12 +50,16 @@ class ui:
 
 	def ShowWindow(self):
 		self.interface.beeper.StopBeeping()
-		self.window.show()
-		self.window.activateWindow()
+		if not self.window.isVisible():
+			threading.Thread(target=winsound.Beep, args=(1200, 500,)).start()
+			self.window.show()
+			self.window.activateWindow()
 
 	def HideWindow(self):
 		self.interface.beeper.StopBeeping()
-		self.window.hide()
+		if self.window.isVisible():
+			threading.Thread(target=winsound.Beep, args=(800, 500,)).start()
+			self.window.hide()
 
 	def OpenEntry(self):
 		self.interface.beeper.StopBeeping()

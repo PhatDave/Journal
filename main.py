@@ -1,3 +1,4 @@
+import SpawnThread
 from Database.database import Database
 from Entries.reminders import Reminders
 from Entries.todos import TODOS
@@ -13,9 +14,10 @@ reminders = Reminders(db.GetReminders(), db)
 
 beeper = Beeper(reminders)
 beeper.Start()
-beeper.StartBeeping()
+# beeper.StartBeeping()
 
 ui = UiInterface(todos, reminders, db, beeper)
+spawnThread = SpawnThread.SpawnThread(15 * 60, ui)
 
 # ui.ConsoleSubmit('rmd 10:55')
 # ui.ConsoleSubmit('rmd 10:55 |test123')

@@ -1,3 +1,6 @@
+import threading
+import winsound
+
 import Entries.DatetimeParser
 from UI.ui import ui
 from Entries.entry import Entry
@@ -25,6 +28,7 @@ class UiInterface:
 		self.SetLastEntry(self.db.GetLastEntry())
 
 	def ConsoleSubmit(self, text):
+		threading.Thread(target=winsound.Beep, args=(800, 500,)).start()
 		self.beeper.StopBeeping()
 		if 'add' in text[:3]:
 			text = text[4:]
@@ -49,7 +53,11 @@ class UiInterface:
 			self.Refresh()
 		self.ClearConsole()
 
+	def Show(self):
+		self.ui.ShowWindow()
+
 	def EntrySubmit(self, text):
+		threading.Thread(target=winsound.Beep, args=(800, 500,)).start()
 		self.beeper.StopBeeping()
 		entry = Entry(text, datetime.datetime.now())
 		self.db.WriteEntry(entry)

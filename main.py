@@ -1,4 +1,6 @@
-import Entries.entry
+from Entries.entry import Entry
+from Entries.todoEntry import TodoEntry
+from Entries.reminderEntry import ReminderEntry
 from UI.ui import ui
 from Database.database import Database
 from datetime import datetime
@@ -14,8 +16,12 @@ db = Database()
 # One for entry, maybe a class in UI to format UI input to entry class
 # One for TODO and one for Reminder, on the same principle
 
-# dummyEntry = entry.Entry('test123', datetime.now())
-# db.WriteEntry(dummyEntry)
+dummyEntry = Entry('test123', datetime.now())
+dummyTODO = TodoEntry('do stuff', datetime.now())
+dummyReminder = ReminderEntry('d ostuff sometime later mayeb', datetime.now())
+db.WriteEntry(dummyEntry)
+db.WriteEntry(dummyTODO)
+db.WriteEntry(dummyReminder)
 
 print(db.GetLastEntry())
 

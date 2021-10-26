@@ -24,9 +24,13 @@ class Reminders:
 
 	def AddEntry(self, entry):
 		if entry.date > datetime.datetime.now():
-			self.rlist.append(entry)
+			# self.rlist.append(entry)
 			self.rlist.sort(key=lambda x:x.date)
 			self.db.WriteEntry(entry)
+			self.UpdateFromDB()
+
+	def UpdateFromDB(self):
+		self.rlist = self.db.GetReminders()
 
 	def __str__(self):
 		output = ""

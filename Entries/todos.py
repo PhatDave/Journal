@@ -9,8 +9,12 @@ class TODOS:
 		self.tlist.pop(index)
 
 	def AddEntry(self, entry):
-		self.tlist.append(entry)
+		# self.tlist.append(entry)
 		self.db.WriteEntry(entry)
+		self.UpdateFromDB()
+
+	def UpdateFromDB(self):
+		self.tlist = self.db.GetTODOs()
 
 	def __str__(self):
 		output = ""

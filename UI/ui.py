@@ -77,15 +77,15 @@ class ui:
 		self.SetMarkdown(self.window.ui.markdownPreview, text)
 
 		try:
-			if 'ff' in text[-3:]:
-				self.interface.EntrySubmit(text[:-2].rstrip())
+			if ' ff' in text[-3:]:
+				self.interface.EntrySubmit(text[:-3].rstrip())
 		except IndexError: pass
 
 	def ConsoleChanged(self):
 		text = self.window.ui.console.toPlainText()
 		try:
-			if 'ff' in text[-3:]:
-				self.interface.ConsoleSubmit(text[:-2].rstrip())
+			if ' ff' in text[-3:]:
+				self.interface.ConsoleSubmit(text[:-3].rstrip())
 		except IndexError: pass
 
 	def CenterOnScreen(self):

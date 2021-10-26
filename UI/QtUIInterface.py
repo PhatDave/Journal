@@ -34,11 +34,9 @@ class UiInterface:
 			text = text[4:]
 			entry = TodoEntry(text, datetime.datetime.now())
 			self.todos.AddEntry(entry)
-			self.Refresh()
 		elif 'rem' in text[:3]:
 			text = text[4:]
 			self.todos.RemoveEntry(int(text))
-			self.Refresh()
 		elif 'rmd' in text[:3]:
 			if 'add' in text[4:7]:
 				text = text[8:].split('|')
@@ -50,7 +48,7 @@ class UiInterface:
 			elif 'rem' in text[4:7]:
 				text = text[8:]
 				self.reminders.RemoveEntry(int(text))
-			self.Refresh()
+		self.Refresh()
 		self.ClearConsole()
 
 	def Show(self):

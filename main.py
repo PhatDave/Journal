@@ -9,12 +9,11 @@ from UI.QtUIInterface import UiInterface
 from datetime import datetime
 import random
 
-ui = UiInterface()
 db = Database()
 todos = TODOS(db.GetTODOs(), db)
 reminders = Reminders(db.GetReminders(), db)
-ui.SetTodoText(str(todos))
-ui.SetReminderText(str(reminders))
+
+ui = UiInterface(todos, reminders, db)
 
 # UI Post events
 # ui.window.ui.currentEntry.returnPressed.connect(SubmitEntry)

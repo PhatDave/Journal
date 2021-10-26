@@ -8,7 +8,10 @@ class Entry:
 		self.date = row[1]
 
 	def __str__(self):
-		return f'{self.content}, {str(self.date)}'
+		return f'{self.FormatDate()}\n{self.content}'
 
 	def Format(self):
 		return f'INSERT INTO ENTRIES(message, datetime) VALUES (\"{self.content}\", \"{str(self.date)}\")'
+
+	def FormatDate(self):
+		return str(self.date).split('.')[0]

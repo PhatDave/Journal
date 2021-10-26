@@ -1,8 +1,21 @@
+import datetime
+
+
 class Reminders:
-	# TODO: Check if any reminders are past due and remove them
 	def __init__(self, rlist, db=None):
 		self.rlist = rlist
 		self.db = db
+		self.RemoveOutOfDate()
+
+	def RemoveOutOfDate(self):
+		toBeRemoved = []
+		now = datetime.datetime.now()
+		for i, item in enumerate(self.rlist):
+			if item.date < now:
+				# self.RemoveEntry(i)
+				toBeRemoved.append(i)
+		for i in toBeRemoved:
+			self.RemoveEntry(i + 1)
 
 	def RemoveEntry(self, index):
 		index -= 1
@@ -10,8 +23,9 @@ class Reminders:
 		self.rlist.pop(index)
 
 	def AddEntry(self, entry):
-		self.rlist.append(entry)
-		self.db.WriteEntry(entry)
+		if entry.date > datetime.datetime.now():
+			self.rlist.append(entry)
+			self.db.WriteEntry(entry)
 
 	def __str__(self):
 		output = ""

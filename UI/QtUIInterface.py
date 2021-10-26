@@ -1,7 +1,3 @@
-# TODO: Create interface for UI, access the UI through this interface
-#   Expose only necessary methods
-import datetime
-
 import Entries.DatetimeParser
 from UI.ui import ui
 from Entries.entry import Entry
@@ -9,8 +5,6 @@ from Entries.todoEntry import TodoEntry
 from Entries.reminderEntry import ReminderEntry
 import datetime
 
-
-# TODO: Now handle console...
 
 class UiInterface:
 	def __init__(self, todos, reminders, db):

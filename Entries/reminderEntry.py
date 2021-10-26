@@ -1,4 +1,5 @@
-# TODO: Add date parsing for console interaction
+import datetime
+
 
 class ReminderEntry:
 	def __init__(self, content="", date=""):
@@ -8,7 +9,7 @@ class ReminderEntry:
 
 	def FromRow(self, row):
 		self.content = row[0]
-		self.date = row[1]
+		self.date = datetime.datetime.strptime(row[1], '%Y-%m-%d %H:%M:%S')
 		self.ROWID = row[2]
 
 	def __str__(self):

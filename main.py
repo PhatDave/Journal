@@ -5,17 +5,16 @@ from Entries.todos import TODOS
 from Entries.reminders import Reminders
 from UI.ui import ui
 from Database.database import Database
+from UI.QtUIInterface import UiInterface
 from datetime import datetime
 import random
 
-ui = ui()
+ui = UiInterface()
 db = Database()
 todos = TODOS(db.GetTODOs(), db)
 reminders = Reminders(db.GetReminders(), db)
-
-print(str(reminders))
-reminders.RemoveEntry(13)
-print(str(reminders))
+ui.SetTodoText(str(todos))
+ui.SetReminderText(str(reminders))
 
 # UI Post events
 # ui.window.ui.currentEntry.returnPressed.connect(SubmitEntry)
@@ -41,4 +40,4 @@ print(str(reminders))
 
 # Also handle reminder beepage somehow, worry about that later, should not be problem
 
-# ui.Start()
+ui.Start()

@@ -13,15 +13,18 @@ class MainWindow(QMainWindow):
 
 
 class ui:
-	def __init__(self):
+	def __init__(self, interface):
 		self.app = QApplication(sys.argv)
 		self.window = MainWindow()
 		self.window.setWindowOpacity(0.65)
+
+		self.interface = interface
 
 		self.window.setWindowFlags(
 			self.window.windowFlags() | QtCore.Qt.FramelessWindowHint)
 
 		self.window.ui.currentEntry.textChanged.connect(self.EntryChanged)
+		self.window.ui.console.textChanged.connect(self.ConsoleChanged)
 
 		# Open window and focus entry
 		keyboard.add_hotkey('alt+page down', self.OpenEntry,
@@ -55,8 +58,21 @@ class ui:
 		self.window.ui.console.setFocus()
 
 	def EntryChanged(self):
-		self.SetText(self.window.ui.markdownPreview,
-					 self.window.ui.currentEntry.toPlainText())
+		text = self.window.ui.currentEntry.toPlainText()
+
+		self.SetMarkdown(self.window.ui.markdownPreview, text)
+
+		try:
+			if 'eof' in text[-3:]:
+				self.interface.EntrySubmit(text[:-4])
+		except IndexError: pass
+
+	def ConsoleChanged(self):
+		text = self.window.ui.console.toPlainText()
+		try:
+			if 'eof' in text[-3:]:
+				self.interface.ConsoleSubmit(text[:-4])
+		except IndexError: pass
 
 	def CenterOnScreen(self):
 		height = 1080
@@ -67,5 +83,5 @@ class ui:
 								self.window.width(),
 								self.window.height())
 
-	def SetText(self, widget, text):
+	def SetMarkdown(self, widget, text):
 		widget.setMarkdown(text)

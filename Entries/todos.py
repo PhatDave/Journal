@@ -14,5 +14,5 @@ class TODOS:
 	def __str__(self):
 		output = ""
 		for i, entry in enumerate(self.tlist):
-			output += f'{i + 1}. {entry.content}\n'
+			output += f'{i + 1}.\t{entry.content}\n'
 		return output

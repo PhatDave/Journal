@@ -14,5 +14,5 @@ class Reminders:
 	def __str__(self):
 		output = ""
 		for i, entry in enumerate(self.rlist):
-			output += f'{i + 1}. {entry.FormatDate()} {entry.content}\n'
+			output += f'{i + 1}.\t{entry.FormatDate()} {entry.content}\n'
 		return output

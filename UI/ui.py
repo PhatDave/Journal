@@ -22,8 +22,6 @@ class ui:
 			self.window.windowFlags() | QtCore.Qt.FramelessWindowHint)
 
 		self.window.ui.currentEntry.textChanged.connect(self.EntryChanged)
-		self.window.ui.currentEntry.returnPressed.connect(self.SubmitEntry)
-		self.window.ui.console.returnPressed.connect(self.SubmitConsole)
 
 		# Open window and focus entry
 		keyboard.add_hotkey('alt+page down', self.OpenEntry,
@@ -37,13 +35,9 @@ class ui:
 
 		self.CenterOnScreen()
 		self.window.show()
+
+	def Start(self):
 		sys.exit(self.app.exec())
-
-	def SubmitEntry(self):
-		pass
-
-	def SubmitConsole(self):
-		pass
 
 	def ShowWindow(self):
 		self.window.show()

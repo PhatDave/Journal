@@ -10,7 +10,7 @@ The main window consists of several text areas, in order from right-down:
 
 ## Console "commands"
 
-##### *!! Every command must end with fff (instead of return key) !!*
+##### *!! Every command must end with ff (instead of return key) !!*
 The console allows the adding and removing of items to the todo and reminder list
 - Adding to the TODO list `add <text>`
 - Removing an item from the TODO list `rem <index>`

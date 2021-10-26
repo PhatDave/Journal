@@ -7,11 +7,12 @@ import datetime
 
 
 class UiInterface:
-	def __init__(self, todos, reminders, db):
+	def __init__(self, todos, reminders, db, beeper):
 		self.ui = ui(self)
-		self.db = db
 		self.todos = todos
 		self.reminders = reminders
+		self.db = db
+		self.beeper = beeper
 		self.datetimeParser = Entries.DatetimeParser.DatetimeParser()
 		self.Refresh()
 
@@ -24,6 +25,7 @@ class UiInterface:
 		self.SetLastEntry(self.db.GetLastEntry())
 
 	def ConsoleSubmit(self, text):
+		self.beeper.StopBeeping()
 		if 'add' in text[:3]:
 			text = text[4:]
 			entry = TodoEntry(text, datetime.datetime.now())
@@ -48,6 +50,7 @@ class UiInterface:
 		self.ClearConsole()
 
 	def EntrySubmit(self, text):
+		self.beeper.StopBeeping()
 		entry = Entry(text, datetime.datetime.now())
 		self.db.WriteEntry(entry)
 		self.Refresh()

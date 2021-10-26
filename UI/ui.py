@@ -43,17 +43,21 @@ class ui:
 		sys.exit(self.app.exec())
 
 	def ShowWindow(self):
+		self.interface.beeper.StopBeeping()
 		self.window.show()
 		self.window.activateWindow()
 
 	def HideWindow(self):
+		self.interface.beeper.StopBeeping()
 		self.window.hide()
 
 	def OpenEntry(self):
+		self.interface.beeper.StopBeeping()
 		self.ShowWindow()
 		self.window.ui.currentEntry.setFocus()
 
 	def OpenConsole(self):
+		self.interface.beeper.StopBeeping()
 		self.ShowWindow()
 		self.window.ui.console.setFocus()
 
@@ -63,14 +67,14 @@ class ui:
 		self.SetMarkdown(self.window.ui.markdownPreview, text)
 
 		try:
-			if 'fff' in text[-3:]:
+			if 'ff' in text[-3:]:
 				self.interface.EntrySubmit(text[:-4])
 		except IndexError: pass
 
 	def ConsoleChanged(self):
 		text = self.window.ui.console.toPlainText()
 		try:
-			if 'fff' in text[-3:]:
+			if 'ff' in text[-3:]:
 				self.interface.ConsoleSubmit(text[:-4])
 		except IndexError: pass
 

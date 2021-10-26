@@ -14,3 +14,6 @@ class ReminderEntry:
 
 	def Format(self):
 		return f'INSERT INTO REMINDERS(message, datetime) VALUES (\"{self.content}\", \"{str(self.date)}\")'
+
+	def FormatDate(self):
+		return str(self.date).split('.')[0]

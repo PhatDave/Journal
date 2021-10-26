@@ -1,7 +1,7 @@
 class TODOS:
-	def __init__(self, tlist):
+	def __init__(self, tlist, db=None):
 		self.tlist = tlist
-		self.db = None
+		self.db = db
 
 	def RemoveEntry(self, index):
 		index -= 1

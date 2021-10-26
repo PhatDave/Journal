@@ -2,6 +2,7 @@ from Entries.entry import Entry
 from Entries.todoEntry import TodoEntry
 from Entries.reminderEntry import ReminderEntry
 from Entries.todos import TODOS
+from Entries.reminders import Reminders
 from UI.ui import ui
 from Database.database import Database
 from datetime import datetime
@@ -9,6 +10,10 @@ import random
 
 ui = ui()
 db = Database()
+todos = TODOS(db.GetTODOs(), db)
+reminders = Reminders(db.GetReminders(), db)
+
+print(str(reminders))
 
 # UI Post events
 # ui.window.ui.currentEntry.returnPressed.connect(SubmitEntry)
@@ -26,18 +31,11 @@ db = Database()
 # db.WriteEntry(dummyReminder)
 # quit()
 
-todos = TODOS(db.GetTODOs())
-todos.db = db
 
 # for i in range(50):
-# 	dummyTODO = TodoEntry(f'do stuff {random.randint(0, 100)}', datetime.now())
-# 	todos.AddEntry(dummyTODO)
+# 	dummyReminder = ReminderEntry(f'reminder 101 {random.randint(0, 100)}', datetime.now())
+# 	todos.AddEntry(dummyReminder)
 
-print(todos.tlist)
-print(str(todos))
-todos.RemoveEntry(1)
-print(todos.tlist)
-print(str(todos))
 
 # Also handle reminder beepage somehow, worry about that later, should not be problem
 

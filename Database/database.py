@@ -1,5 +1,7 @@
 import sqlite3
 import os
+
+from Entries.reminderEntry import ReminderEntry
 from Entries.entry import Entry
 from Entries.todoEntry import TodoEntry
 
@@ -46,6 +48,14 @@ class Database:
 			entry.FromRow(i)
 			todos.append(entry)
 		return todos
+
+	def GetReminders(self):
+		reminders = []
+		for i in self.cur.execute('SELECT message, datetime FROM REMINDERS ORDER BY datetime ASC;'):
+			entry = ReminderEntry()
+			entry.FromRow(i)
+			reminders.append(entry)
+		return reminders
 
 	def RemoveRow(self, table, rowID):
 		self.cur.execute(f'DELETE FROM {table.upper()} WHERE ROWID={rowID};')

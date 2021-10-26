@@ -19,7 +19,7 @@ class ui:
 	def __init__(self, interface):
 		self.app = QApplication(sys.argv)
 		self.window = MainWindow()
-		self.window.setWindowOpacity(0.65)
+		self.window.setWindowOpacity(0.85)
 
 		self.interface = interface
 

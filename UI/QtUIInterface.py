@@ -61,6 +61,7 @@ class UiInterface:
 		self.beeper.StopBeeping()
 		entry = Entry(text, datetime.datetime.now())
 		self.db.WriteEntry(entry)
+		self.ClearEntry()
 		self.Refresh()
 
 	def SetTodoText(self, text):

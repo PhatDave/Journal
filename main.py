@@ -14,6 +14,8 @@ todos = TODOS(db.GetTODOs(), db)
 reminders = Reminders(db.GetReminders(), db)
 
 print(str(reminders))
+reminders.RemoveEntry(13)
+print(str(reminders))
 
 # UI Post events
 # ui.window.ui.currentEntry.returnPressed.connect(SubmitEntry)

@@ -61,6 +61,7 @@ class UiInterface:
 		self.db.WriteEntry(entry)
 		self.ClearEntry()
 		self.Refresh()
+		self.ui.HideWindow()
 
 	def SetTodoText(self, text):
 		self.ui.window.ui.todo.setText(text)
